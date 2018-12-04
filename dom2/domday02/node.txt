@@ -1,0 +1,239 @@
+
+
+DOM:
+	文档对象模型
+	浏览器--》html标签--》dom对象
+
+	Object
+	  |
+	Node
+	  |
+	Document        Element     Comment   TextNode
+	|                 |           |         |
+	HTMLDocument     HTMLElement  注释     普通文本
+	|					|
+	Document          div/p/body
+
+
+1.Node:
+	nodeName:
+		节点名称
+		返回值类型：string
+		返回值：标签名称 大写
+
+	nodeType:
+		节点类型
+		返回值类型：number
+	nodeValue:
+		element--》null
+		注释、文本--》内容
+	childNodes:
+		返回值：当前元素的所有孩子节点组成的类数组对象
+			NodeList[]
+		类数组对象[index]
+		类数组对象.item(index)
+			index:从0开始
+
+		for(){}
+		forEach();
+
+		将类数组对象转换为数组：
+			Array.prototyoe.slice.call(类数组对象,0);
+
+	parentNode:
+		返回父节点
+	previousSibling:
+		返回上一个兄弟节点
+	nextSibling:
+		返回下一个兄弟节点
+		body没有下一个兄弟
+
+	firstChild:
+		返回当前元素的第一个孩子节点
+		返回childNodes中的第一个元素
+
+	lastChild:
+		返回最后一个孩子节点
+
+	ownerDocument：
+		指向当前html中的Document
+
+
+	hasChildNode()
+		返回值类型为boolean类型
+		对于有孩子节点的元素返回true
+
+
+
+	-----
+	操作方法：
+		需要直接父级节点调用
+		appendChild()
+			参数：节点对象
+
+		insertBefore()
+			参数：
+				要插入的节点   参考节点
+
+		replaceChild():
+			参数：
+				要插入的节点  要替换的节点
+
+		removeChild()
+			参数为要移除的孩子节点
+
+
+		cloneNode()
+			复制节点
+			参数：
+				true/false
+				true:深复制
+				false：默认值
+
+		获取元素：
+			document.getElementById("one");//一个
+			document.getElementsByTagName("标签名称");
+				//类数组对象
+
+			document.getElementsByName()//类数组对象
+			document.getElementsByClassName("")//类数组对象
+
+		属性：
+			document.body-->body标签
+			title
+			links
+			images
+			forms
+			....
+
+
+		script:
+			window.onload=funciton(){
+				//将整个dom树的内容全部加载完毕之后再执行当前函数
+
+			}
+
+			html:
+				div*img
+
+
+
+
+
+	Element:
+		html元素：
+			<div id class  title style flag="0"></div>
+
+			div.id
+			div.class
+
+
+
+--------------------------------------
+事件：
+	事件三要素：
+		1.事件目标
+		2.事件处理程序 funciton(){}
+		3.事件对象
+
+
+		<button>按钮</button>
+	html中事件：
+		onType="函数"
+
+
+	事件流：
+		先进行事件捕获--》事件冒泡
+		事件捕获：
+			从外向内
+		事件冒泡
+			从内向外
+
+
+		1.DOM0级事件
+			onType
+			缺点：
+				不能对相同的dom元素绑定多个事件
+			优点：
+				兼容性较好
+			事件绑定：
+				dom.onType=function(){}
+			事件解绑：
+				dom.onType=null
+
+
+		2.DOM2级事件
+			缺点：
+				兼容性不好
+				在IE8以及以下不能使用
+			事件绑定：
+			dom.addEventListener();
+				三个参数：
+					事件类型：type  /click
+					事件处理程序：function(){}
+					是否在事件捕获阶段开始执行：
+						true:是
+						false:在冒泡阶段执行 默认
+
+			事件解绑：
+			dom.removeEventListener();
+				和绑定事件的参数一致
+				三个参数：
+					事件类型：type  /click
+					事件处理程序：function(){}
+					是否在事件捕获阶段开始执行：
+						true:是
+						false:在冒泡阶段执行 默认
+
+
+	IE8以及以下的DOM2级事件：
+		dom.attachEvent()：
+			参数：
+				on+type  事件处理程序
+
+			div.attachEvent("onclick",function(){});
+
+
+		事件解绑：
+			dom.detachEvent()
+				参数：
+				on+type  事件处理程序
+
+
+
+	事件对象：
+		非IE：
+			window--》event--》放在事件处理程序的形参中
+			target:事件目标,始终指向最终的事件对象
+			currentTarget：事件目标：指向当前执行函数的dom对象
+			this:事件目标   和currentTarget
+
+
+
+
+
+
+		IE(8以下)：
+			window.event
+
+
+
+
+button:
+	type
+		:button
+			submit
+			reset
+
+		form中：
+			type=submit
+		form外：
+			type="button"
+
+
+
+
+
+
+
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		table{
+			border-collapse: collapse;
+			margin:20px auto;
+		}
+
+		td{
+			width: 100px;
+			height: 30px;
+			border:1px solid black;
+			text-align: center
+		}
+
+		.hidden{
+			display: none
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			//
+			var hiddenTr=document.getElementsByClassName("hidden")[0];
+			var tbody=hiddenTr.parentNode;
+
+			var btns=document.getElementsByTagName("button");
+			var trs=tbody.children;
+
+
+
+			btns[0].onclick=function(){
+				history.back();
+				var clone=hiddenTr.cloneNode(true);
+				clone.className="";
+				tbody.appendChild(clone);
+			}
+
+			btns[1].onclick=function(){
+				var inputs=document.getElementsByTagName("input");
+				Array.prototype.slice.call(inputs,0).forEach(function(item){
+					if(item.checked){
+						tbody.removeChild(item.parentNode.parentNode);
+					}
+				})
+			}
+
+		//鼠标移入当前行变色
+			/*Array.prototype.slice.call(trs,0).forEach(function(item){
+				item.onmouseover=function(){
+					item.style.backgroundColor="pink";
+				}
+
+			});
+			//鼠标移出当前行样式取消
+			Array.prototype.slice.call(trs,0).forEach(function(item){
+			item.onmouseout=function(){
+				item.style.backgroundColor = "";
+			}
+		});
+
+*/
+
+	//使用事件代理完成鼠标移入变色
+	tbody.onmouseover=function(event){
+		if(event.target.nodeName=="TD"){
+			event.target.parentNode.style.backgroundColor="pink";
+		}
+
+
+	}
+
+	tbody.onmouseout=function(event){
+		if(event.target.nodeName.toLowerCase()=="td"){
+			event.target.parentNode.style.backgroundColor=""
+		}
+	}
+
+
+
+
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<table>
+		<tr class="hidden">
+			<td><input type="checkbox"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<div><button>添加</button><button>删除</button></div>
+</body>
+</html>

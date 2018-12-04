@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		table{
+			border-collapse: collapse;
+			margin:20px auto;
+		}
+
+		td{
+			width: 100px;
+			height: 30px;
+			border:1px solid black;
+			text-align: center
+		}
+
+		.hidden{
+			display: none
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var hiddenTr=document.getElementsByClassName("hidden")[0];
+			var tbody=hiddenTr.parentNode;
+
+			var btns=document.getElementsByTagName("button");
+			
+
+
+			btns[0].onclick=function(){
+
+				var clone=hiddenTr.cloneNode(true);
+				clone.className="";
+				tbody.appendChild(clone);
+			}
+
+			btns[1].onclick=function(){
+				var inputs=document.getElementsByTagName("input");
+				Array.prototype.slice.call(inputs,0).forEach(function(item){
+					if(item.checked){
+						tbody.removeChild(item.parentNode.parentNode);
+					}
+				})
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<table>
+		<tr class="hidden">
+			<td><input type="checkbox"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<div><button>添加</button><button>删除</button></div>
+</body>
+</html>

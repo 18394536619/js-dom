@@ -1,0 +1,215 @@
+
+
+Element:
+	属性
+	<div id="one" class="two"></div>
+	
+	div.id
+	.className
+	.title
+	.style
+
+	图片：
+		img.src
+		img.alt
+
+	input:
+		.value
+		.name
+		.type
+		.checked
+
+
+
+	自定义属性：
+		<div flag="0"> </div>
+
+		div.flag//undefined
+
+		div.getAttribute("key");//获取属性值
+		div.setAttribute("key","value");//设置属性以及属性值
+		div.removeAttribute("key");//移除指定属性
+
+
+	attributes:
+		<div id="one" class="two"></div>
+		var result=div.attributes-->
+			[id=one,class=two]
+
+			result[index]
+			result.item(index);
+			result.getNamedItem("key")
+			-->result.getNamedItem("id")//id="one"
+
+			result.removeNamedItem("key");
+
+	创建元素类型：
+		document.createElement("div");
+
+
+	firstElementChild
+	lastElementChild
+	children
+	previousElementSibling
+	nextElementSibling
+	childElementCount
+
+	获取元素内容：
+		innerHTML：返回元素内容，包含html标签
+			返回值类型：字符串类型 string
+
+		textContent:
+			返回元素内容
+			不包含元素标签
+			返回值类型：string
+		innerText:
+			IE8以及以下
+
+
+Text：
+	文本
+	Text.prototype.
+Comment
+	注释
+	Comment.prototype.xxx
+
+	<!--注释-->
+
+
+	var arr=new Array()
+	arr
+	Array.prototype.
+
+	<div id="one"></div>
+	var div=document.getElementById("one");
+
+
+
+	-----------------------------
+
+事件：
+	html和js的一个交互
+	事件三要素：
+	1.事件目标
+	2.事件处理程序
+	3.事件对象 event
+
+	先进行事件捕获，再进行事件冒泡
+	事件捕获：从外而内
+	事件冒泡：从内向外
+
+	DOM0级事件：
+		div.onType=function(event){}
+
+		div.onclick=funciton(){}
+		div.ondbclick=funciton(){}
+
+		优点：兼容性较好
+		缺点：对于同一个dom元素，只能绑定一个事件类型
+
+		解除绑定：
+		div.onType=null;
+
+	DOM2级事件：
+		非IE浏览器：
+			dom.addEventListener();
+				三个参数：
+				事件类型   string
+				事件处理程序 
+				是否在捕获阶段执行函数
+				false
+				true:在捕获阶段执行
+
+			事件解绑：
+				dom.removeEventListener()
+				三个参数：
+				事件类型   string
+				事件处理程序 
+				是否在捕获阶段执行函数
+				false
+				true:在捕获阶段执行
+
+		IE8及以下：
+			dom.attachEvent()
+				两个参数：
+					on+type
+					事件处理程序
+			dom.detachEvent()
+				两个参数：
+					on+type
+					事件处理程序
+
+
+
+	<div onclick=handler()></div>
+	<a href="javascript:void(alert)"></a>
+
+
+	事件对象：
+		非IE中：
+			dom.onclick=funciton(event){
+				console.log(event);
+			}
+			event:
+				target:事件目标
+				currentTarget:事件目标
+				this:事件目标
+				stopPropagation():阻止事件冒泡
+				preventDefault():阻止事件默认行为
+
+
+		IE8及以下：
+			window.event
+			dom.onclick=funciton(){
+				console.log(event);
+			}
+
+			event：
+				srcElement--》target
+				this
+				cancelBubble=true
+				returnValue=false
+
+事件：
+	load
+	click
+	submit
+
+	mouseover
+	mouseout
+		鼠标移入事件
+		支持子元素
+
+
+	mouseenter
+	mouseleave
+		鼠标移入事件
+		不支持子元素
+
+
+
+
+元素：
+	元素状态：
+		块级元素：
+			div
+		行内元素
+			span
+		空元素
+
+	等级：
+		三个等级：
+		一级：
+			body
+		二级：
+			div h1~h6  ul ol..
+			span
+
+		三级：
+			p
+
+-------------------------
+
+1.闭包
+	
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			border:1px solid red;
+			/* padding: 10px */
+		}
+		p{
+			height: 150px;
+			margin: 0px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var div=document.getElementById("one");
+			console.log(div.offsetWidth);
+			//div.style.width=div.offsetWidth+100+"px";
+			console.log(div.clientWidth);
+			console.log(div.scrollHeight);
+
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<div id="one" class="one" style="display:none">
+		<p></p>
+	</div>
+</body>
+</html>

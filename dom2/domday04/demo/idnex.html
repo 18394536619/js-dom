@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			//1.获取元素
+
+			/*
+			var btns;
+			var i;
+			btns[i].onclick;
+
+
+			btns=[];
+			i=0;
+			btns[0].onclick=funciton(){}
+
+			i=1;
+			btns[1].onclick=function(){
+				i=4
+			}
+
+
+
+
+
+			*/
+			var btns=document.getElementsByTagName("button");
+
+			for(var i=0;i<btns.length;i++){
+				btns[i].onclick=(function(a){
+						return function(){
+							alert(a);
+						}
+					})(i);
+			}
+
+			/*
+
+			i=0;
+			btns[0].onclick=function(){
+							alert(0);
+						}
+
+			i=1;
+			btns[1].onclick=()(1)-->funciton(){
+				alert(1);
+			}
+
+
+			*/
+
+
+			//2.事件绑定
+
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<button>qq</button>
+	<button>ww</button>
+	<button>ee</button>
+	<button>rr</button>
+</body>
+</html>

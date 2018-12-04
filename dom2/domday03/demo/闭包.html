@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			/*
+			var btns;
+			var i;
+			btns[i].onclick;
+
+
+			btns=[];
+			i=0;
+			btns[0].onclick=function(){
+				alert(i);
+			}
+
+			var i=1;
+			btns[1].onclick=funciton(){
+				alert(i)
+			}
+
+			var i=2;
+			btns[2].onclick=function(){}
+
+			var i=4;
+
+			*/
+			var btns=document.getElementsByTagName("button");
+
+			for(var i=0;i<btns.length;i++){
+				btns[i].onclick=(function(a){
+					return function(){
+						alert(a)
+					}
+				})(i);
+			}
+
+			/*
+			i=0;
+			btns[0].onclick=function(){
+				alert(a)//a=i=0
+			}
+
+			i=1
+			btns[1].onclick=function(){
+				alert(a)//a=i=1
+			}
+
+
+
+			*/
+
+
+
+
+
+
+		}
+
+
+	</script>
+</head>
+<body>
+	<button>添加</button>
+	<button>删除</button>
+	<button>修改</button>
+	<button>替换</button>
+</body>
+</html>

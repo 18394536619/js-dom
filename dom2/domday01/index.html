@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function sayName(){//1001
+					alert("hello");
+				}
+		function factory(name,age){
+			var o={//new Object
+				name:name,
+				age:age,
+				sayName:sayName,//1001
+				sayAge:sayAge,
+				sayGender:sayGender
+			}
+
+			return o
+		}
+
+		var stu1=factory("lisi",12);
+		var stu2=factory("tom",23);
+		console.log(stu1.sayName==stu2.sayName);
+		console.log(stu2.sayName());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

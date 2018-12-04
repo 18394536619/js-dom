@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var body=document.body;
+			var divs=document.getElementsByTagName("div")[1];
+			console.log(divs.hasChildNodes());
+			console.log(body.ownerDocument);
+		}
+	</script>
+</head>
+<body>
+	<div>1</div>
+	<div></div>
+	<div>3</div>
+</body>
+</html>

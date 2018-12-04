@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		
+
+		var arr=[11,22,33,44];
+
+		arr.forEach(function(item,index,arr){
+			console.log(this);
+		},{});
+
+
+
+
+
+
+
+
+
+		/*var age=10;
+		function test(){//1001
+			alert(this.age);
+		}
+
+		var obj={
+			name:"lisi",
+			age:20,
+			test:test,
+			sayName:function(handler){//handler-->1001
+				handler();
+				alert(this.age);
+			},
+			o:{
+
+			}
+		}
+
+		obj.sayName(test);*///obj.sayName(1001)
+
+/*
+		test();
+		obj.test();*/
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

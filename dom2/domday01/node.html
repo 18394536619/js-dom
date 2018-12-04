@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var body=document.body;
+			var comm=body.childNodes[0];
+			var text=body.childNodes[1];
+
+			
+			var childs=body.childNodes;
+			//console.log(childs.item(1));//childs[1]
+
+			/*for(var i=0;i<childs.length;i++){
+				console.log(childs[i]);
+			}*/
+			console.log(childs);
+			//类数组对象--》数组
+			//1.底层for循环
+				/*var newArr=[];
+				for(var i=0;i<childs.length;i++){
+					newArr.push(childs[i])
+				}
+				console.log(newArr);*/
+
+			//2.slice方法
+				var arr=[1,2,3,4,5];
+				var arr1=[1,22,3,4,5];
+
+				/*var result2=arr.slice.call(childs,0);
+				console.log(result2);*/
+
+			//3.直接调用
+
+		Array.prototype.slice.call(childs,0).filter(function(){
+			
+		});
+
+
+				/*Array.prototype.mySlice=function(){
+					var len=arguments.length;
+					var newArr=[];
+					if(len==0){
+						for(var i=0;i<this.length;i++){
+							newArr.push(this[i]);
+						}
+						return newArr
+					}else if(len==1){
+						for(var i=arguments[0];i<this.length;i++){
+							newArr.push(this[i]);
+						}
+
+						return newArr
+					}else if(len>=2){
+						for(var i=arguments[0];i<arguments[1];i++){
+							newArr.push(this[i]);
+						}
+
+						return newArr
+					}
+
+				}*/
+
+				
+
+			//开始标签  元素内容  结束标签
+			//<标签名称>
+
+
+			/*console.log(text.nodeType);
+
+			console.log(comm.nodeType);
+			console.log(body.nodeType);
+			console.log(document.nodeType);*/
+		}
+	</script>
+</head>
+<body><!--注释-->hello<div>hello</div></body>
+</html>

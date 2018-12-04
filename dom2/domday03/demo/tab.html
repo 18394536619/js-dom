@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		button{
+			margin-left: 20px;
+		}
+		.current{
+			background-color: red
+		}
+
+		li{
+			width: 300px;
+			height: 300px;
+			border:1px solid red;
+			list-style: none;
+			display: none
+		}
+
+		.currentLi{
+			display: block;
+		}
+
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var btns=document.getElementsByTagName("button");
+			var lis=document.getElementsByTagName("li")
+
+	for(var i=0;i<btns.length;i++){
+		btns[i].onclick=(function(a){
+			return function(){
+				//1.清空所有按钮样式
+				Array.prototype.slice.call(btns,0).forEach(function(item,index){
+					item.removeAttribute("class");
+				})
+				//2.给当前点击按钮添加样式
+				btns[a].setAttribute("class","current");
+
+				//3.先取消所有li样式
+				Array.prototype.slice.call(lis,0).forEach(function(item){
+					item.removeAttribute("class");
+				});
+				//4.显示当前页面
+				lis[a].setAttribute("class",'currentLi');
+
+
+
+
+
+
+
+							}
+		})(i)
+	}
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<button class="current">商品信息</button>
+	<button>商品配置</button>
+	<button>商品数量</button>
+	<ul>
+		<li class="currentLi">商品信息页面------</li>
+		<li>商品配置页面------</li>
+		<li>商品数量页面------</li>
+	</ul>
+</body>
+</html>

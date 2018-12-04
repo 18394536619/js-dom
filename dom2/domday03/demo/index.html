@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div#outer{
+			width: 300px;
+			height: 300px;
+		}
+		div#center{
+			width: 200px;
+			height: 200px;
+		}
+		div#inner{
+			width: 100px;
+			height: 100px;
+		}
+		div{
+			border:1px solid red;
+			margin: 20px auto
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var outer=document.getElementById("outer");
+			var input=document.getElementsByTagName("input")[0];
+
+			input.onkeydown=function(event){
+				console.log(event.ctrlKey);
+				if(event.keyCode===13){
+					alert("发送~")
+				}
+			}
+
+
+
+			/*input.onselect=function(){
+				alert();
+			}*/
+
+			outer.onmouseenter=function(event){
+				//click-->支持子元素
+				console.log(event.target);
+			}
+			var body=document.body;
+			body.onresize=function(){
+				console.log(11);
+			};
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<input type="text">
+	<div id="outer">
+		<div id="center">
+			<div id="inner"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function Student(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		//Stundet.prototype={}//1001
+
+		Student.prototype.sayName=function(){
+			alert("sayName------");
+		}
+
+		Student.prototype={//new Object  1002
+			sayAge:function(){
+				alert("age------");
+			},
+			gender:function(){
+				alert("gender----");
+			}
+		}
+
+		var stu1=new Student("tom",12);
+		var stu2=new Student("larry",23);
+
+
+		stu1.gender();
+		
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
